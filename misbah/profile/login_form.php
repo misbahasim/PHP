@@ -8,20 +8,21 @@
 
 <?php
 
-$con=mysql_connect('localhost','root','');
-$db="mis_profile";
-$my_db=mysql_select_db($db, $con);
+$con=mysqli_connect("localhost","root","","mis_profile");
 
 session_start();
+
 if(isset($_POST['btnLogin']))
 {
   $uname=$_POST['txtname'];
   $pass=$_POST['txtpass'];
   
-  $login =mysql_query("select * from tbladmin where username='$uname' and password='$pass' ",$con);
+  $login =mysqli_query($con,"select * from user_contact where USER_EMAIL_ID='$uname' and USER_PASSWORD='$pass' ");
+  $row=mysqli_fetch_array($login);
   if($login){
 
-    $_SESSION['name']=$uname;
+    $_SESSION['name']=$row['USER_NAME'];
+    setcookie();
     header("location:homepage.php");
   }
   else{

@@ -1,9 +1,7 @@
 .container{
     padding:5%;
 }
-.container .img{
-    text-align:center;
-}
+
 .container .details{
     border-left:3px solid #ded4da;
 }
