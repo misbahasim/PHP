@@ -1,3 +1,21 @@
+<!-- Subscribe section -->
+  <section id="aa-subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-subscribe-area">
+            <h3>Subscribe our newsletter </h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, velit!</p>
+            <form action="" class="aa-subscribe-form">
+              <input type="email" name="" id="" placeholder="Enter your Email">
+              <input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Subscribe section -->
 
   <!-- footer -->  
   <footer id="aa-footer">
@@ -93,30 +111,33 @@
   </footer>
   <!-- / footer -->
   
-    <!-- Login Modal -->  
+  <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">                      
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4>Login or Register</h4>
+
+
           <form class="aa-login-form" action="php/login.php" method="post">
             <label for="">Username or Email address<span>*</span></label>
-            <input type="text" name="txtname" placeholder="Username or email">
+            <input type="text" placeholder="Username or email" name="txtname">
             <label for="">Password<span>*</span></label>
-            <input type="password" name="txtpass" placeholder="Password">
-            <input name="btnLogin" class="aa-browse-btn" type="submit" value="Login"></input>
+            <input type="password" placeholder="Password" name="txtpass">
+            <input class="aa-browse-btn" type="submit" name="btnLogin" value="Login">
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
             <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
             <div class="aa-register-now">
-              Don't have an account?<a href="account.php">Register now!</a>
+              Don't have an account?<a href="account.html">Register now!</a>
             </div>
           </form>
+
+
         </div>                        
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div>
-
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -1,35 +1,27 @@
 <?php
 session_start();
 if(isset($_SESSION['uname'])=='' || empty($_SESSION['uname']))
-	{
-	echo"<script>alert('Invalid username');
-	window.location='../index.php';
-	</script>";
-	//header("location:../index.php");
-	}
-	else
-	{
-		$user=$_SESSION['uname'];
-	}
-?>
-
-<?php include("../config/database.php");
-$db=new connect();
-$db->conn();
+    {
+    echo"<script>alert('Invalid username');</script>";
+    header("location:admin/index.php");
+    }
+    else
+    {
+        $user=$_SESSION['uname'];
+        $role_type=$_SESSION['role'];
+    }
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Dashboard</title>
-
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-	<script src="showing.js"></script>
-
+	<link rel="stylesheet" id="bootstrap-css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/dashboard_style.css">
+    
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/showing.js"></script>
 </head>
 <body>
 
@@ -57,12 +49,14 @@ $db->conn();
                 </a>
             </li>            
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $user ?> <b class="fa fa-angle-down"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                    <?php echo strtoupper($user); ?> <b class="fa fa-angle-down"></b>
+                </a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
                     <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
                     <li class="divider"></li>
-                    <li><a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                    <li><a href="../php/logout.php"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -72,19 +66,23 @@ $db->conn();
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> CATEGORY <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-1" class="collapse">
-                        <li><a href="#view_cat"><i class="fa fa-angle-double-right"></i> View Category</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Add category</a></li>
+                        <li><a href="category.php"><i class="fa fa-angle-double-right"></i> View Category</a></li>
+                        <li><a href="add_upd_cat.php"><i class="fa fa-angle-double-right"></i> Add category</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> PRODUCT <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-2" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> View product</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Add product </a></li>
+                        <li><a href="product.php"><i class="fa fa-angle-double-right"></i> View product</a></li>
+                        <li><a href="pro_add_upd.php"><i class="fa fa-angle-double-right"></i> Add product </a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-user-plus"></i>  USER</a>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-user-plus"></i>  USER <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-3" class="collapse">
+                        <li><a href="user.php"><i class="fa fa-angle-double-right"></i> View user</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Add user </a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-paper-plane-o"></i> MENU 4</a>
@@ -102,7 +100,7 @@ $db->conn();
             <!-- Page Heading -->
             <div class="row" id="main" >
                 <div class="col-sm-12 col-md-12 well" id="content">
-                    <h1>Welcome to Dashboard!</h1>
+                    <h1>Welcome to Dashboard! <?php echo "$role_type"; ?></h1>
                 </div>
             </div>
             <!-- /.row -->
@@ -110,45 +108,3 @@ $db->conn();
         <!-- /.container-fluid -->
     </div>
     <!-- /#page-wrapper -->
-
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <!-- Page Heading -->
-            <div class="row" id="main" name="view_cat">
-                <div class="col-sm-12 col-md-12" id="content">
-                    <TABLE class="table table-bordred table-striped"> 
-                        <TR>
-                            <TH>id</TH>
-                            <TH>CATEGORY NAME</TH>
-                            <TH colspan="2" style="text-align:center">ACTION</TH>
-                        </TR>
-                <?php
-                $count=1;
-                $cat=$db->db_select("tblcat");
-                while($row=mysqli_fetch_array($cat))
-                {
-                  echo "<TR>
-                        <TD>$count</TD>
-                        <TD>$row[1]</TD>
-
-                        <TD><a href='update.php?edit=$row[0]' class='btn btn-info'>Update</a></TD>
-                        <TD><a href='delete.php?del=$row[0]' class='btn btn-danger'>Delete</a></TD> 
-
-                     </TR>";  
-                      $count++;
-                } 
-              ?>
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /#page-wrapper -->
-
-</div><!-- /#wrapper -->
-
-</body>
-</html>
-
-
