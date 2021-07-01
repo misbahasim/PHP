@@ -2,6 +2,7 @@
 include '../../config/database.php';
 $db=new Connect();
 
+if(isset($_GET)){
 if (isset($_GET['u_id'])) {
 	$id=$_GET['u_id'];
 	$delete=$db->db_delete("UPDATE `tbluser` SET `status`='Disabled' WHERE id=$id");
@@ -44,6 +45,9 @@ if (isset($_GET['c_id']))
 		echo "alert('not deleted')";
 		header("location:../category.php");
 	}
+}
+}else{
+	echo "Access Denied";
 }
 
 ?>

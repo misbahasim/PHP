@@ -1,7 +1,6 @@
 <?php 
 session_start();
-$expire=time()-60*60*24;
-setcookie('aroma', $_SESSION['uname'], $expire);
 session_destroy();
+setcookie('aroma', "", time()-60,"/aroma"); //check path of cookie in inspector add path to delete it 
 header("location:../login.php");
  ?>

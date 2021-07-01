@@ -46,36 +46,47 @@ if (isset($_GET['u_id'])) {
 }
 ?>
 <div class="row">
-    <div class="col-sm-10">
+    <div class="col-sm-11">
         <div class="card">
             <div class="card-body">
                 <form class="mt-3 form-horizontal" action="php/all_code.php" method="post">
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
-                            class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-10">
+                            class="col-sm-3 col-form-label">Username</label>
+                        <div class="col-sm-9">
                             <input type="hidden" name="u_id" value="<?php echo $id; ?>">
-                            <input type="text" class="form-control" value="<?php echo $name; ?>" name="u_name">
+                            <input type="text" class="form-control" value="<?php echo $name; ?>" name="u_name" 
+                            pattern="[a-zA-Z ]+" minlength="3" maxlength="20">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
-                            class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control" value="<?php echo $mail; ?>" name="u_mail">
+                            class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" value="<?php echo $mail; ?>" name="u_mail" 
+                             pattern="[a-zA-Z_][a-zA-Z0-9.]+@[a-z]+\.[a-z]{2,4}$">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
-                            class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="Password" class="form-control" value="<?php echo $pass; ?>" name="u_pass">
+                            class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="Password" class="form-control" name="u_pass" value="<?php echo $pass; ?>"
+                             pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
-                            class="col-sm-2 col-form-label">Status</label>
-                        <div class="col-sm-10">
+                            class="col-sm-3 col-form-label">Confirm Password</label>
+                        <div class="col-sm-9">
+                            <input type="Password" name="c_pass" class="form-control" required="" 
+                            pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputHorizontalSuccess"
+                            class="col-sm-3 col-form-label">Status</label>
+                        <div class="col-sm-9">
                             <select name="u_status" class="form-control">
                                 <option value="Enabled"
                                 <?php if ($status=="Enabled") { echo "selected"; } ?>

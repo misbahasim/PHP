@@ -108,7 +108,6 @@
                     <th>#</th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>Status</th>
                     <th colspan="2" class="text-center">Action</th>
                 </tr>
@@ -123,7 +122,6 @@
                     <td>$count</td>
                     <td>$row[name]</td>
                     <td>$row[email]</td>
-                    <td>$row[password]</td>
                     <td>$row[status]</td>
                     <td><a href='update_user.php?u_id=$row[id]' class='btn btn-success btn-rounded'>Update</a></td>
                     <td><a href='php/delete.php?u_id=$row[id]' class='btn btn-danger btn-rounded'>Delete</a></td>

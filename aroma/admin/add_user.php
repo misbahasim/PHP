@@ -62,28 +62,32 @@
                         <label for="inputHorizontalSuccess"
                             class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" name="u_name" class="form-control" required="">
+                            <input type="text" name="u_name" class="form-control" required="" 
+                            pattern="[a-zA-Z ]+" minlength="3" maxlength="20">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
                             class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="email" name="u_mail" class="form-control" placeholder="abc@example.com" required="">
+                            <input type="email" name="u_mail" class="form-control" placeholder="abc@example.com" 
+                            required="" required pattern="[a-zA-Z_][a-zA-Z0-9.]+@[a-z]+\.[a-z]{2,4}$">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
                             class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="Password" name="u_pass" class="form-control" required="">
+                            <input type="Password" name="u_pass" class="form-control" required="" 
+                            pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
                             class="col-sm-3 col-form-label">Confirm Password</label>
                         <div class="col-sm-9">
-                            <input type="Password" name="c_pass" class="form-control" required="">
+                            <input type="Password" name="c_pass" class="form-control" required=""
+                             pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">
                         </div>
                     </div>
                     <div class="form-group row">

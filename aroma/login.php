@@ -3,7 +3,6 @@ if(isset($_SESSION['uname'])){
     header("location:index.php");
 }
 ?>
-
   <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
@@ -21,7 +20,6 @@ if(isset($_SESSION['uname'])){
     </div>
 	</section>
 	<!-- ================ end banner area ================= -->
-  
   <!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">
 		<div class="container">
@@ -54,7 +52,7 @@ if(isset($_SESSION['uname'])){
 						    
 					?>
 						<h3>Log in to enter</h3>
-						<form class="row login_form" action="admin/login.php" method="post">
+						<form class="row login_form" action="login_credit.php" method="post">
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="name" name="txtemail" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required pattern="[a-zA-Z_][a-zA-Z0-9.]+@[a-z]+\.[a-z]{2,}$">
 							</div>

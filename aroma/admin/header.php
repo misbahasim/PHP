@@ -7,7 +7,7 @@ if(isset($_SESSION['uname']) || isset($_COOKIE['aroma']))
 	if(!isset($_SESSION['uname']) && isset($_COOKIE['aroma']))
 	{
 		$_SESSION['uname'] = $_COOKIE['aroma'];
-        $query = $db->select_query("SELECT `role` FROM `tbluser` WHERE `name`='$_SESSION[uname]' ");
+        $query = $db->select_query("SELECT `role` FROM `tbluser` WHERE `name`='".$_SESSION['uname']."' ");
         $row = mysqli_fetch_array($query);
         $_SESSION['urole']=$row['role'];
 	}

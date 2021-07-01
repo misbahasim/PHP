@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 <?php include 'sidebar.php'; ?>
 <!-- ============================================================== -->
-<!-- Page wrapper  cookie working inside dashboard validations all -->
+<!-- Page wrapper  jquery-->
 <!-- ============================================================== -->
 <div class="page-wrapper">
 <!-- ============================================================== -->

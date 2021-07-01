@@ -112,4 +112,5 @@ if (isset($_POST['btnUpdProduct'])) {
 	}
 }
 
+
 ?>

@@ -60,17 +60,20 @@
 						?>
 						<form class="row login_form" action="admin/register.php" id="register_form" method="post">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="u_name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required pattern="[a-zA-Z ]{3,20}"
-                    				title="enter letters min=3 max=20" maxlength="20">
+								<input type="text" class="form-control" id="name" name="u_name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required pattern="[a-zA-Z ]+"
+                    				title="enter letters min=3 max=20" minlength="3" maxlength="20">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="email" name="u_mail" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" required pattern="[a-zA-Z_][a-zA-Z0-9.]+@[a-z]+\.[a-z]{2,4}$">
+								<input type="email" class="form-control" id="email" name="u_mail" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'" 
+								required="" pattern="[a-zA-Z_][a-zA-Z0-9.]+@[a-z]+\.[a-z]{2,4}$">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="password" name="u_pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required maxlength="15">
+								<input type="password" class="form-control" id="password" name="u_pass" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" 
+								required pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required maxlength="15">	
+								<input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" 
+								required pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">	
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="button button-register w-100" name="registerUser">Register</button>

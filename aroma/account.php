@@ -144,7 +144,7 @@ if(isset($_SESSION['uname'])){
 				<aside class="single_sidebar_widget author_widget">
 						<img class="author_img rounded-circle" src="img/blog/author.png" alt="">
 						<h4><?php echo $_SESSION['uname']; ?></h4>
-						<p>Senior blog writer</p>
+						<p>Customer</p>
 						<div class="social_icon">
   <a href="#">
       <i class="fab fa-facebook-f"></i>

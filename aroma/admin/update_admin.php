@@ -54,21 +54,32 @@ if (isset($_GET['u_id'])) {
                             class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
                             <input type="hidden" name="u_id" value="<?php echo $id; ?>">
-                            <input type="text" class="form-control" value="<?php echo $name; ?>" name="u_name">
+                            <input type="text" class="form-control" value="<?php echo $name; ?>" name="u_name"
+                            pattern="[a-zA-Z ]+" minlength="3" maxlength="20">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
                             class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" value="<?php echo $mail; ?>" name="u_mail">
+                            <input type="email" class="form-control" value="<?php echo $mail; ?>" name="u_mail"
+                            pattern="[a-zA-Z_][a-zA-Z0-9.]+@[a-z]+\.[a-z]{2,4}$">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputHorizontalSuccess"
                             class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" value="<?php echo $pass; ?>" name="u_pass">
+                            <input type="password" class="form-control" name="u_pass" value="<?php echo $pass; ?>"
+                             pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputHorizontalSuccess"
+                            class="col-sm-2 col-form-label">Confirm Password</label>
+                        <div class="col-sm-10">
+                            <input type="Password" name="c_pass" class="form-control" required=""
+                             pattern="[a-zA-Z0-9!@#$&*]+" minlength="9" maxlength="15">
                         </div>
                     </div>
                     <div class="form-actions">

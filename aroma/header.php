@@ -1,6 +1,17 @@
-<?php include("config/database.php");
+<?php 
+include("config/database.php");
 $db=new connect();
 session_start();
+if(isset($_SESSION['uname']) || isset($_COOKIE['aroma']))
+{
+	if(!isset($_SESSION['uname']) && isset($_COOKIE['aroma']))
+	{
+		$_SESSION['uname'] = $_COOKIE['aroma'];
+        $query = $db->select_query("SELECT `role` FROM `tbluser` WHERE `name`='".$_SESSION['uname']."' ");
+        $row = mysqli_fetch_array($query);
+        $_SESSION['urole']=$row['role'];
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,14 +60,6 @@ session_start();
                       <a class='nav-link' href='category.php?cname=".base64_encode($row[1])."'>$row[1]</a></li>";
                     } 
                  ?>
-                </ul>
-							</li>
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Blog</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-blog.php">Blog Details</a></li>
                 </ul>
 							</li>
               <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
